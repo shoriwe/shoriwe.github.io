@@ -1,0 +1,13 @@
+<!doctype html><html lang=en><link href=/static/css/page.css rel=stylesheet><link href=/static/vendor/css/github-markdown.css rel=stylesheet><link href=/static/vendor/prism/prism.css rel=stylesheet><meta charset=utf-8><title>Playground</title><div class=navigation-bar><a class="base-button plasma-title">Plasma</a>
+<a class="base-button blue-button" href=/index.html>Home</a>
+<a class="base-button green-button" href=/playground.html>Playground</a>
+<a class="base-button purple-button" href=/documentation/docs.html>Documentation</a></div><div class=body-div><link href=/static/css/playground.css rel=stylesheet><link href=/static/vendor/prism/prism-live.css rel=stylesheet><div class=playground-container><div class=playground-part><article class=markdown-body><h1>Editor</h1><label><textarea class="prism-live language-ruby line-numbers fill prism-live-source" id=code_container style="caret-color: rgb(0, 0, 0); font: inherit; font-feature-settings: inherit; font-optical-sizing: inherit; tab-size: inherit; padding-left: 8px;">def hello_world()
+    println("Hello world")
+end
+
+if IsMain
+    hello_world()
+end</textarea></label></article></div><div class=playground-part><article class=markdown-body><h1>Output
+<button class="run-button green-button" onclick=run_code()>Run</button></h1><pre><code id=output></code></pre></article></div></div></div><script src=/static/vendor/prism/prism.js></script>
+<script src="/static/vendor/prism/prism-live.js?load=ruby"></script>
+<script src=/js/playground.js></script>
