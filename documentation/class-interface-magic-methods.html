@@ -1,56 +1,106 @@
 <!doctype html><html lang=en><link href=/static/css/page.css rel=stylesheet><link href=/static/vendor/css/github-markdown.css rel=stylesheet><link href=/static/vendor/prism/prism.css rel=stylesheet><meta charset=utf-8><title>Documentation</title><div class=navigation-bar><a class="base-button plasma-title">Plasma</a>
 <a class="base-button blue-button" href=/index.html>Home</a>
 <a class="base-button green-button" href=/playground.html>Playground</a>
-<a class="base-button purple-button" href=/documentation/docs.html>Documentation</a></div><div class=body-div><link href=/static/css/documentation.css rel=stylesheet><div class=documentation-container><div class=table-of-contents><article class=markdown-body><article class=markdown-body><h1><a href=/documentation/docs.html>Start</a></h1><h1><a href=/documentation/language.html>Language</a></h1><h2><a href=/documentation/built-in.html>Built-In</a></h2><h6><a href=/documentation/built-in-types.html>Types</a></h6><h6><a href=/documentation/built-in-functions.html>Functions</a></h6><h2><a href=/documentation/operators.html>Operators</a></h2><h2><a href=/documentation/indexing.html>Indexing</a></h2><h2><a href=/documentation/name-selectors.html>Name selectors</a></h2><h2><a href=/documentation/generators.html>Generators</a></h2><h2><a href=/documentation/function-definitions.html>Function definitions</a></h2><h6><a href=/documentation/function-definitions-named-functions.html>Named functions</a></h6><h6><a href=/documentation/function-definitions-lambda-functions.html>Lambda functions</a></h6><h2><a href=/documentation/assign.html>Assign</a></h2><h2><a href=/documentation/module.html>Module</a></h2><h2><a href=/documentation/class-interface.html>Class and Interface definitions</a></h2><h6><a href=/documentation/class-interface-classes.html>Classes</a></h6><h6><a href=/documentation/class-interface-interfaces.html>Interfaces</a></h6><h6><a href=/documentation/class-interface-super.html>Super</a></h6><h6><a href=/documentation/class-interface-magic-methods.html>Magic methods</a></h6><h2><a href=/documentation/if-unless.html>If/Unless statements</a></h2><h6><a href=/documentation/if-unless-if.html>If</a></h6><h6><a href=/documentation/if-unless-unless.html>Unless</a></h6><h2><a href=/documentation/switch.html>Switch</a></h2><h2><a href=/documentation/loops.html>Loops</a></h2><h6><a href=/documentation/loops-do-while.html>Do-While</a></h6><h6><a href=/documentation/loops-while.html>While</a></h6><h6><a href=/documentation/loops-until.html>Until</a></h6><h6><a href=/documentation/loops-for.html>For</a></h6><h6><a href=/documentation/loops-special-keyboards.html>Special Keyboards</a> &ndash; <a href=/documentation/loops-special-keyboards-break.html>Break</a> &ndash; <a href=/documentation/loops-special-keyboards-continue.html>Continue</a> &ndash; <a href=/documentation/loops-special-keyboards-redo.html>Redo</a></h6><h2><a href=/documentation/begin.html>Begin</a></h2><h2><a href=/documentation/end.html>End</a></h2><h2><a href=/documentation/pass.html>Pass</a></h2><h1><a href=/documentation/features.html>Features</a></h1><h6><a href=/documentation/features-import-system.html>Import system</a></h6><h6><a href=/documentation/features-object-loader.html>ObjectLoaders</a></h6><h1><a href=/documentation/embedding.html>Embedding</a></h1><h1><a href=/documentation/stdlib.html>Standard library</a></h1><h6><a href=/documentation/stdlib-regexp.html>regexp</a></h6><h6><a href=/documentation/stdlib-json.html>json</a></h6><h6><a href=/documentation/stdlib-base64.html>base64</a></h6></article></article></div><div class=documentation><article class=markdown-body><article class=markdown-body><h1>Magic methods</h1><p>Magic methods are used to operate with the language internals, to overwrite operators, to simplify an object API.<h2>Default</h2><p>These methods are inherited from <code>Value</code> and are inherited even if it is not explicit.<h4>Initialize(ANY_NUMBER_OF_ARGUMENTS, &mldr;)</h4><p>First method called when an object is created, useful no object configuration.<h4>Negate()</h4><pre><code class="language-ruby line-numbers">not self
-!self
-</code></pre><p>Negate the boolean interpretation of the object. Auto selected when used <code>not</code> and <code>!</code><h4>And(right)</h4><pre><code class="language-ruby line-numbers">self and right
-</code></pre><p>And boolean comparison. Auto called when using the keyboard <code>and</code>.<h4>RightAnd(self)</h4><pre><code class="language-ruby line-numbers">left and self
-</code></pre><p>And boolean comparison. Auto called when using the keyboard <code>and</code>.<h4>Or(right)</h4><pre><code class="language-ruby line-numbers">self or right
-</code></pre><p>Or boolean comparison. Auto called when using the keyboard <code>or</code>.<h4>RightOr(left)</h4><pre><code class="language-ruby line-numbers">left or self
-</code></pre><p>Or boolean comparison. Auto called when using the keyboard <code>or</code>.<h4>Xor(right)</h4><pre><code class="language-ruby line-numbers">self xor right
-</code></pre><p>Xor boolean comparison. Auto called when using the keyboard <code>xor</code>.<h4>RightXor(left)</h4><pre><code class="language-ruby line-numbers">left or self
-</code></pre><p>Xor boolean comparison. Auto called when using the keyboard <code>xor</code>.<h4>Hash()</h4><p>Returns the hash for the object.<p>This method is used by the HashTable class to store new entries and select existing ones<h4>Copy()</h4><p>Copies the object.<h4>Call(ANY_NUMBER_OF_ARGUMENTS, &mldr;)</h4><p>This method is called every time you use an object as a function call.<h4>Class()</h4><p>Returns the class that constructed the object.<h4>SubClasses()</h4><p>Returns an array of all the classes, even nested inheritance, of the object.<h4>ToInteger()</h4><p>Returns the integer representation of the object.<h4>ToFloat()</h4><p>Returns the float representation of the object.<h4>ToString()</h4><p>Returns the string representation of the object.<h4>ToBool()</h4><p>Returns the boolean representation of the object.<h4>ToArray()</h4><p>Returns the array representation of the object.<h4>ToTuple()</h4><p>Returns the tuple representation of the object.<h4>ToBytes()</h4><p>Returns the bytes representation of the object.<h4>GetInteger()</h4><p>Returns the internal integer.<h4>GetBool()</h4><p>Returns the internal boolean.<h4>GetBytes()</h4><p>Returns the internal bytes.<h4>GetString()</h4><p>Returns the internal string.<h4>GetFloat()</h4><p>Returns the internal float.<h4>GetContent()</h4><p>Returns the internal array of object for arrays and tuples.<h4>GetKeyValues()</h4><p>Returns the internal key and value of the object.<h4>SetBool(new_value)</h4><p>Sets the internal boolean to a specific value.<h4>SetBytes(new_value)</h4><p>Sets the internal bytes to a specific value.<h4>SetString(new_value)</h4><p>Sets the internal string to a specific value.<h4>SetInteger(new_value)</h4><p>Sets the internal integer to a specific value.<h4>SetFloat(new_value)</h4><p>Sets the internal float to a specific value.<h4>SetContent(new_value)</h4><p>Sets the internal content to a specific array.<h4>SetKeyValues(new_value)</h4><p>Sets the internal key and values to a specific map.<h2>Iterable specific</h2><h4>Index(index)</h4><p>Used when indexing an object.<pre><code class="language-ruby line-numbers">self[index]
-</code></pre><h4>Iter</h4><p>This method is called by many internal functions to reinterpret some objects as generators.<pre><code class="language-ruby line-numbers">for element in self # Here it is called to operate self as a generator
-    println(element)
-end
-</code></pre><h4>Contains(element)</h4><p>This method is used by the operation <code>in</code>.<pre><code class="language-ruby line-numbers">element in self
-</code></pre><h3>Generator specific</h3><h4>HasNext()</h4><p>Returns <code>True</code> when it still has elements to iterate. And <code>False</code> when it not.<h4>Next()</h4><p>Returns the next value of the iteration.<h3>Array and Hash Table specific</h3><h4>Delete(index)</h4><p>Deletes the element by its index.<h4>Assign(index, value)</h4><p>Used when assign is used with and index.<pre><code class="language-ruby line-numbers">self[index] = value
-</code></pre><h3>Array specific</h3><h4>Append(value)</h4><p>Puts the <code>value</code> at the end of the array.<h4>Pop</h4><p>Returns the last element and remove it from the array.<h2>String, Bytes, Array, Tuple and Hash specific</h2><h4>Length()</h4><p>Returns the length of the object.<h2>String and Bytes specific</h2><h4>Lower()</h4><p>Returns the lower case of the string.<h4>Upper()</h4><p>Returns the upper case of the string.<h4>Split(sep)</h4><p>Returns an array of strings which is the result by splitting <code>self</code> by <code>sep</code><h4>Replace(target, replace)</h4><p>Replaces the <code>target</code> with <code>replace</code>.<h2>Numeric specific</h2><h4>Negative()</h4><p>Auto used when approached the unary expression <code>-</code><pre><code class="language-ruby line-numbers">-self
-</code></pre><h4>Add(right)</h4><pre><code class="language-ruby line-numbers">self + right
-</code></pre><p>Adds the values. Auto called when using the operator <code>+</code>.<h4>RightAdd(self)</h4><pre><code class="language-ruby line-numbers">left + self
-</code></pre><p>Adds the values. Auto called when using the operator <code>+</code>.<h4>Sub(right)</h4><pre><code class="language-ruby line-numbers">self - right
-</code></pre><p>Subtracts the values. Auto called when using the operator <code>-</code>.<h4>RightSub(left)</h4><pre><code class="language-ruby line-numbers">left - self
-</code></pre><p>Subtracts the values. Auto called when using the operator <code>-</code>.<h4>Mul(right)</h4><pre><code class="language-ruby line-numbers">self * right
-</code></pre><p>Multiplies the values. Auto called when using the operator <code>*</code>.<h4>RightMul(left)</h4><pre><code class="language-ruby line-numbers">left * self
-</code></pre><p>Multiplies the values. Auto called when using the operator <code>*</code>.<h4>Div(right)</h4><pre><code class="language-ruby line-numbers">self / right
-</code></pre><p>Divides the values. Auto called when using the operator <code>/</code>.<h4>RightDiv(left)</h4><pre><code class="language-ruby line-numbers">left / self
-</code></pre><p>Divides the values. Auto called when using the operator <code>/</code>.<h4>FloorDiv(right)</h4><pre><code class="language-ruby line-numbers">self // right
-</code></pre><p>Floor divides the values. Auto called when using the operator <code>//</code>.<h4>RightFloorDiv(left)</h4><pre><code class="language-ruby line-numbers">left // self
-</code></pre><p>Floor divides the values. Auto called when using the operator <code>//</code>.<h4>Pow(right)</h4><pre><code class="language-ruby line-numbers">self ** right
-</code></pre><p>Power of the values. Auto called when using the operator <code>**</code>.<h4>RightPow(left)</h4><pre><code class="language-ruby line-numbers">left ** self
-</code></pre><p>Power of the values. Auto called when using the operator <code>**</code>.<h4>Equals(right)</h4><pre><code class="language-ruby line-numbers">self == right
-</code></pre><p>Equals the values. Auto called when using the operator <code>==</code>.<h4>RightEquals(left)</h4><pre><code class="language-ruby line-numbers">left == self
-</code></pre><p>Equals the values. Auto called when using the operator <code>==</code>.<h4>NotEquals(right)</h4><pre><code class="language-ruby line-numbers">self != right
-</code></pre><p>Not equals the values. Auto called when using the operator <code>!=</code>.<h4>RightNotEquals(left)</h4><pre><code class="language-ruby line-numbers">left != self
-</code></pre><p>Not equals the values. Auto called when using the operator <code>!=</code>.<h4>GreaterThan(right)</h4><pre><code class="language-ruby line-numbers">self &gt; right
-</code></pre><p>Greater than of the values. Auto called when using the operator <code>></code>.<h4>RightGreaterThan(left)</h4><pre><code class="language-ruby line-numbers">left &gt; self
-</code></pre><p>Greater than of the values. Auto called when using the operator <code>></code>.<h4>LessThan(right)</h4><pre><code class="language-ruby line-numbers">self &lt; right
-</code></pre><p>Less than of the values. Auto called when using the operator <code>&lt;</code>.<h4>RightLessThan(left)</h4><pre><code class="language-ruby line-numbers">left &lt; self
-</code></pre><p>Less than of the values. Auto called when using the operator <code>&lt;</code>.<h4>GreaterThanOrEqual(right)</h4><pre><code class="language-ruby line-numbers">self &gt;= right
-</code></pre><p>Greater or equal than of the values. Auto called when using the operator <code>>=</code>.<h4>RightGreaterThanOrEqual(left)</h4><pre><code class="language-ruby line-numbers">left &gt;= self
-</code></pre><p>Greater or equal than of the values. Auto called when using the operator <code>>=</code>.<h4>LessThanOrEqual(right)</h4><pre><code class="language-ruby line-numbers">self &lt;= right
-</code></pre><p>Less or equal than of the values. Auto called when using the operator <code>&lt;=</code>.<h4>RightLessThanOrEqual(left)</h4><pre><code class="language-ruby line-numbers">left &lt;= self
-</code></pre><p>Less or equal than of the values. Auto called when using the operator <code>&lt;=</code>.<h2>Integer specific</h2><h4>Mod(right)</h4><pre><code class="language-ruby line-numbers">self % right
-</code></pre><p>Modulus of the values. Auto called when using the operator <code>%</code>.<h4>RightMod(left)</h4><pre><code class="language-ruby line-numbers">left % self
-</code></pre><p>Modulus of the values. Auto called when using the operator <code>%</code>.<h4>BitXor(right)</h4><pre><code class="language-ruby line-numbers">self ^ right
-</code></pre><p>Bitwise xor of the values. Auto called when using the operator <code>^</code>.<h4>RightBitXor(left)</h4><pre><code class="language-ruby line-numbers">left ^ self
-</code></pre><p>Bitwise xor of the values. Auto called when using the operator <code>^</code>.<h4>BitAnd(right)</h4><pre><code class="language-ruby line-numbers">self &amp; right
-</code></pre><p>Bitwise and of the values. Auto called when using the operator <code>&</code>.<h4>RightBitAnd(left)</h4><pre><code class="language-ruby line-numbers">left &amp; self
-</code></pre><p>Bitwise and of the values. Auto called when using the operator <code>&</code>.<h4>BitOr(right)</h4><pre><code class="language-ruby line-numbers">self | right
-</code></pre><p>Bitwise or of the values. Auto called when using the operator <code>|</code>.<h4>RightBitOr(left)</h4><pre><code class="language-ruby line-numbers">left | self
-</code></pre><p>Bitwise or of the values. Auto called when using the operator <code>|</code>.<h4>BitLeft(right)</h4><pre><code class="language-ruby line-numbers">self &lt;&lt; right
-</code></pre><p>Bitwise left of the values. Auto called when using the operator <code>&lt;&lt;</code>.<h4>RightBitLeft(left)</h4><pre><code class="language-ruby line-numbers">left &lt;&lt; self
-</code></pre><p>Bitwise left of the values. Auto called when using the operator <code>&lt;&lt;</code>.<h4>BitRight(right)</h4><pre><code class="language-ruby line-numbers">self &gt;&gt; right
-</code></pre><p>Bitwise right of the values. Auto called when using the operator <code>>></code>.<h4>RightBitRight(left)</h4><pre><code class="language-ruby line-numbers">left &gt;&gt; self
-</code></pre><p>Bitwise right of the values. Auto called when using the operator <code>>></code>.<h4>NegateBits</h4><pre><code class="language-ruby line-numbers">~self
-</code></pre><p>Negate bits of the value. Auto called when using the operator <code>~</code>.</article></article></div></div></div><script src=/static/vendor/prism/prism.js></script>
+<a class="base-button purple-button" href=/documentation/docs.html>Documentation</a></div><div class=body-div><link href=/static/css/documentation.css rel=stylesheet><div class=documentation-container><div class=table-of-contents><article class=markdown-body><article class=markdown-body><h1><a href=/documentation/docs.html>Start</a></h1><p><h1><a href=/documentation/language.html>Language</a></h1><p><h2><a href=/documentation/built-in.html>Built-In</a></h2><p><h6><a href=/documentation/built-in-types.html>Types</a></h6><p><h6><a href=/documentation/built-in-functions.html>Functions</a></h6><p><h2><a href=/documentation/operators.html>Operators</a></h2><p><h2><a href=/documentation/indexing.html>Indexing</a></h2><p><h2><a href=/documentation/name-selectors.html>Name selectors</a></h2><p><h2><a href=/documentation/generators.html>Generators</a></h2><p><h2><a href=/documentation/function-definitions.html>Function definitions</a></h2><p><h6><a href=/documentation/function-definitions-named-functions.html>Named functions</a></h6><p><h6><a href=/documentation/function-definitions-lambda-functions.html>Lambda functions</a></h6><p><h2><a href=/documentation/assign.html>Assign</a></h2><p><h2><a href=/documentation/module.html>Module</a></h2><p><h2><a href=/documentation/class-interface.html>Class and Interface definitions</a></h2><p><h6><a href=/documentation/class-interface-classes.html>Classes</a></h6><p><h6><a href=/documentation/class-interface-interfaces.html>Interfaces</a></h6><p><h6><a href=/documentation/class-interface-super.html>Super</a></h6><p><h6><a href=/documentation/class-interface-magic-methods.html>Magic methods</a></h6><p><h2><a href=/documentation/if-unless.html>If/Unless statements</a></h2><p><h6><a href=/documentation/if-unless-if.html>If</a></h6><p><h6><a href=/documentation/if-unless-unless.html>Unless</a></h6><p><h2><a href=/documentation/switch.html>Switch</a></h2><p><h2><a href=/documentation/loops.html>Loops</a></h2><p><h6><a href=/documentation/loops-do-while.html>Do-While</a></h6><p><h6><a href=/documentation/loops-while.html>While</a></h6><p><h6><a href=/documentation/loops-until.html>Until</a></h6><p><h6><a href=/documentation/loops-for.html>For</a></h6><p><h6><a href=/documentation/loops-special-keyboards.html>Special Keyboards</a> &ndash; <a href=/documentation/loops-special-keyboards-break.html>Break</a> &ndash; <a href=/documentation/loops-special-keyboards-continue.html>Continue</a> &ndash; <a href=/documentation/loops-special-keyboards-redo.html>Redo</a></h6><p><h2><a href=/documentation/begin.html>Begin</a></h2><p><h2><a href=/documentation/end.html>End</a></h2><p><h2><a href=/documentation/pass.html>Pass</a></h2><p><h1><a href=/documentation/features.html>Features</a></h1><p><h6><a href=/documentation/features-import-system.html>Import system</a></h6><p><h6><a href=/documentation/features-object-loader.html>ObjectLoaders</a></h6><p><h1><a href=/documentation/embedding.html>Embedding</a></h1><p><h1><a href=/documentation/stdlib.html>Standard library</a></h1><p><h6><a href=/documentation/stdlib-regexp.html>regexp</a></h6><p><h6><a href=/documentation/stdlib-json.html>json</a></h6><p><h6><a href=/documentation/stdlib-base64.html>base64</a></h6></article></article></div><div class=documentation><article class=markdown-body><article class=markdown-body><h1>Magic methods</h1><p>Magic methods are used to operate with the language internals, to overwrite operators, to simplify an object API.<h2>Default</h2><p>These methods are inherited from <code>Value</code> and are inherited even if it is not explicit.<h4>Initialize(ANY_NUMBER_OF_ARGUMENTS, &mldr;)</h4><p>First method called when an object is created, useful no object configuration.<h4>Negate()</h4><p><code>ruby
+not self
+!self</code>
+Negate the boolean interpretation of the object. Auto selected when used <code>not</code> and <code>!</code><h4>And(right)</h4><p><code>ruby
+self and right</code>
+And boolean comparison. Auto called when using the keyboard <code>and</code>.<h4>RightAnd(self)</h4><p><code>ruby
+left and self</code>
+And boolean comparison. Auto called when using the keyboard <code>and</code>.<h4>Or(right)</h4><p><code>ruby
+self or right</code>
+Or boolean comparison. Auto called when using the keyboard <code>or</code>.<h4>RightOr(left)</h4><p><code>ruby
+left or self</code>
+Or boolean comparison. Auto called when using the keyboard <code>or</code>.<h4>Xor(right)</h4><p><code>ruby
+self xor right</code>
+Xor boolean comparison. Auto called when using the keyboard <code>xor</code>.<h4>RightXor(left)</h4><p><code>ruby
+left or self</code>
+Xor boolean comparison. Auto called when using the keyboard <code>xor</code>.<h4>Hash()</h4><p>Returns the hash for the object.
+This method is used by the HashTable class to store new entries and select existing ones<h4>Copy()</h4><p>Copies the object.<h4>Call(ANY_NUMBER_OF_ARGUMENTS, &mldr;)</h4><p>This method is called every time you use an object as a function call.<h4>Class()</h4><p>Returns the class that constructed the object.<h4>SubClasses()</h4><p>Returns an array of all the classes, even nested inheritance, of the object.<h4>ToInteger()</h4><p>Returns the integer representation of the object.<h4>ToFloat()</h4><p>Returns the float representation of the object.<h4>ToString()</h4><p>Returns the string representation of the object.<h4>ToBool()</h4><p>Returns the boolean representation of the object.<h4>ToArray()</h4><p>Returns the array representation of the object.<h4>ToTuple()</h4><p>Returns the tuple representation of the object.<h4>ToBytes()</h4><p>Returns the bytes representation of the object.<h4>GetInteger()</h4><p>Returns the internal integer.<h4>GetBool()</h4><p>Returns the internal boolean.<h4>GetBytes()</h4><p>Returns the internal bytes.<h4>GetString()</h4><p>Returns the internal string.<h4>GetFloat()</h4><p>Returns the internal float.<h4>GetContent()</h4><p>Returns the internal array of object for arrays and tuples.<h4>GetKeyValues()</h4><p>Returns the internal key and value of the object.<h4>SetBool(new_value)</h4><p>Sets the internal boolean to a specific value.<h4>SetBytes(new_value)</h4><p>Sets the internal bytes to a specific value.<h4>SetString(new_value)</h4><p>Sets the internal string to a specific value.<h4>SetInteger(new_value)</h4><p>Sets the internal integer to a specific value.<h4>SetFloat(new_value)</h4><p>Sets the internal float to a specific value.<h4>SetContent(new_value)</h4><p>Sets the internal content to a specific array.<h4>SetKeyValues(new_value)</h4><p>Sets the internal key and values to a specific map.<h2>Iterable specific</h2><p><h4>Index(index)</h4><p>Used when indexing an object.
+<code>ruby
+self[index]</code><h4>Iter</h4><p>This method is called by many internal functions to reinterpret some objects as generators.
+<code>ruby
+for element in self # Here it is called to operate self as a generator
+println(element)
+end</code><h4>Contains(element)</h4><p>This method is used by the operation <code>in</code>.
+<code>ruby
+element in self</code><h3>Generator specific</h3><p><h4>HasNext()</h4><p>Returns <code>True</code> when it still has elements to iterate. And <code>False</code> when it not.<h4>Next()</h4><p>Returns the next value of the iteration.<h3>Array and Hash Table specific</h3><p><h4>Delete(index)</h4><p>Deletes the element by its index.<h4>Assign(index, value)</h4><p>Used when assign is used with and index.
+<code>ruby
+self[index] = value</code><h3>Array specific</h3><p><h4>Append(value)</h4><p>Puts the <code>value</code> at the end of the array.<h4>Pop</h4><p>Returns the last element and remove it from the array.<h2>String, Bytes, Array, Tuple and Hash specific</h2><p><h4>Length()</h4><p>Returns the length of the object.<h2>String and Bytes specific</h2><p><h4>Lower()</h4><p>Returns the lower case of the string.<h4>Upper()</h4><p>Returns the upper case of the string.<h4>Split(sep)</h4><p>Returns an array of strings which is the result by splitting <code>self</code> by <code>sep</code><h4>Replace(target, replace)</h4><p>Replaces the <code>target</code> with <code>replace</code>.<h2>Numeric specific</h2><p><h4>Negative()</h4><p>Auto used when approached the unary expression <code>-</code>
+<code>ruby
+-self</code><h4>Add(right)</h4><p><code>ruby
+self + right</code>
+Adds the values. Auto called when using the operator <code>+</code>.<h4>RightAdd(self)</h4><p><code>ruby
+left + self</code>
+Adds the values. Auto called when using the operator <code>+</code>.<h4>Sub(right)</h4><p><code>ruby
+self - right</code>
+Subtracts the values. Auto called when using the operator <code>-</code>.<h4>RightSub(left)</h4><p><code>ruby
+left - self</code>
+Subtracts the values. Auto called when using the operator <code>-</code>.<h4>Mul(right)</h4><p><code>ruby
+self * right</code>
+Multiplies the values. Auto called when using the operator <code>*</code>.<h4>RightMul(left)</h4><p><code>ruby
+left * self</code>
+Multiplies the values. Auto called when using the operator <code>*</code>.<h4>Div(right)</h4><p><code>ruby
+self / right</code>
+Divides the values. Auto called when using the operator <code>/</code>.<h4>RightDiv(left)</h4><p><code>ruby
+left / self</code>
+Divides the values. Auto called when using the operator <code>/</code>.<h4>FloorDiv(right)</h4><p><code>ruby
+self // right</code>
+Floor divides the values. Auto called when using the operator <code>//</code>.<h4>RightFloorDiv(left)</h4><p><code>ruby
+left // self</code>
+Floor divides the values. Auto called when using the operator <code>//</code>.<h4>Pow(right)</h4><p><code>ruby
+self ** right</code>
+Power of the values. Auto called when using the operator <code>**</code>.<h4>RightPow(left)</h4><p><code>ruby
+left ** self</code>
+Power of the values. Auto called when using the operator <code>**</code>.<h4>Equals(right)</h4><p><code>ruby
+self == right</code>
+Equals the values. Auto called when using the operator <code>==</code>.<h4>RightEquals(left)</h4><p><code>ruby
+left == self</code>
+Equals the values. Auto called when using the operator <code>==</code>.<h4>NotEquals(right)</h4><p><code>ruby
+self != right</code>
+Not equals the values. Auto called when using the operator <code>!=</code>.<h4>RightNotEquals(left)</h4><p><code>ruby
+left != self</code>
+Not equals the values. Auto called when using the operator <code>!=</code>.<h4>GreaterThan(right)</h4><p><code>ruby
+self > right</code>
+Greater than of the values. Auto called when using the operator <code>></code>.<h4>RightGreaterThan(left)</h4><p><code>ruby
+left > self</code>
+Greater than of the values. Auto called when using the operator <code>></code>.<h4>LessThan(right)</h4><p><code>ruby
+self &lt; right</code>
+Less than of the values. Auto called when using the operator <code>&lt;</code>.<h4>RightLessThan(left)</h4><p><code>ruby
+left &lt; self</code>
+Less than of the values. Auto called when using the operator <code>&lt;</code>.<h4>GreaterThanOrEqual(right)</h4><p><code>ruby
+self >= right</code>
+Greater or equal than of the values. Auto called when using the operator <code>>=</code>.<h4>RightGreaterThanOrEqual(left)</h4><p><code>ruby
+left >= self</code>
+Greater or equal than of the values. Auto called when using the operator <code>>=</code>.<h4>LessThanOrEqual(right)</h4><p><code>ruby
+self &lt;= right</code>
+Less or equal than of the values. Auto called when using the operator <code>&lt;=</code>.<h4>RightLessThanOrEqual(left)</h4><p><code>ruby
+left &lt;= self</code>
+Less or equal than of the values. Auto called when using the operator <code>&lt;=</code>.<h2>Integer specific</h2><p><h4>Mod(right)</h4><p><code>ruby
+self % right</code>
+Modulus of the values. Auto called when using the operator <code>%</code>.<h4>RightMod(left)</h4><p><code>ruby
+left % self</code>
+Modulus of the values. Auto called when using the operator <code>%</code>.<h4>BitXor(right)</h4><p><code>ruby
+self ^ right</code>
+Bitwise xor of the values. Auto called when using the operator <code>^</code>.<h4>RightBitXor(left)</h4><p><code>ruby
+left ^ self</code>
+Bitwise xor of the values. Auto called when using the operator <code>^</code>.<h4>BitAnd(right)</h4><p><code>ruby
+self & right</code>
+Bitwise and of the values. Auto called when using the operator <code>&</code>.<h4>RightBitAnd(left)</h4><p><code>ruby
+left & self</code>
+Bitwise and of the values. Auto called when using the operator <code>&</code>.<h4>BitOr(right)</h4><p><code>ruby
+self | right</code>
+Bitwise or of the values. Auto called when using the operator <code>|</code>.<h4>RightBitOr(left)</h4><p><code>ruby
+left | self</code>
+Bitwise or of the values. Auto called when using the operator <code>|</code>.<h4>BitLeft(right)</h4><p><code>ruby
+self &lt;&lt; right</code>
+Bitwise left of the values. Auto called when using the operator <code>&lt;&lt;</code>.<h4>RightBitLeft(left)</h4><p><code>ruby
+left &lt;&lt; self</code>
+Bitwise left of the values. Auto called when using the operator <code>&lt;&lt;</code>.<h4>BitRight(right)</h4><p><code>ruby
+self >> right</code>
+Bitwise right of the values. Auto called when using the operator <code>>></code>.<h4>RightBitRight(left)</h4><p><code>ruby
+left >> self</code>
+Bitwise right of the values. Auto called when using the operator <code>>></code>.<h4>NegateBits</h4><p><code>ruby
+~self</code>
+Negate bits of the value. Auto called when using the operator <code>~</code>.</article></article></div></div></div><script src=/static/vendor/prism/prism.js></script>
