@@ -1,51 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link href="/plasma/static/css/page.css" rel="stylesheet">
-    <link href="/plasma/static/vendor/css/github-markdown.css" rel="stylesheet">
-    <link href="/plasma/static/vendor/prism/prism.css" rel="stylesheet">
+    <link href="/plasma/static/vendoring/css/github-markdown.css" rel="stylesheet">
+    <link href="/plasma/static/vendoring/prism-material-light.css" rel="stylesheet">
+    <link href="/plasma/static/vendoring/prism/prism-live.css" rel="stylesheet">
+    <link href="/plasma/static/css/app.css" rel="stylesheet">
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
 </head>
 <body>
 
-<div class="navigation-bar">
-    <a class="base-button plasma-title">Plasma</a>
-    <a class="base-button blue-button" href="/plasma/index.html">Home</a>
-    <a class="base-button green-button" href="/plasma/playground.html">Playground</a>
-    <a class="base-button purple-button" href="/plasma/documentation/docs.html">Documentation</a>
-</div>
-
-<div class="body-div">
-    
-<article class="markdown-body">
-	<h1>What is plasma</h1>
-
-<p><strong><a href="https://github.com/shoriwe/gplasma">Plasma</a></strong> is interpreted dynamic type programming language focused in <code>Go</code>
-application embedding.</p>
-
-<h2>Install gplasma</h2>
-
-<pre><code class="language-shell">go install github.com/shoriwe/gplasma/cmd/plasma@latest
-</code></pre>
-
-<h2>Quick preview</h2>
-
-<pre><code class="language-ruby line-numbers">def hello_world()
-    println(&quot;Hello world from plasma!&quot;)
-end
-
-hello_world()
-</code></pre>
-
-<h2>This page is powered by</h2>
-
-<h4><a href="https://github.com/shoriwe/static">static</a></h4>
-
+<div class="contents">
+    <div class="header">
+        <a class="base-button header-button" href="/index.html">Home</a>
+        <a class="base-button header-button" href="/playground.html">Playground</a>
+        <a class="base-button header-button" href="/docs.html">Documentation</a>
+    </div>
+    <article class="markdown-body">
+    <div id="index-readme">
+    </div>
 </article>
+<script>
+    fetch('https://raw.githubusercontent.com/shoriwe/gplasma/main/README.md')
+        .then(
+            response => response.text()
+        )
+        .then(
+            body => {
+                const readme = document.getElementById('index-readme');
+                const conv = new showdown.Converter();
+                readme.innerHTML = conv.makeHtml(body);
+                Prism.highlightAll();
+            }
+        );
+</script>
 </div>
-<script src="/plasma/static/vendor/prism/prism.js"></script>
-
+<script src="/static/vendoring/prism/prism.js"></script>
+<script src="/static/vendoring/prism/prism-live.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.4.0/showdown.min.js"></script>
 </body>
-
 </html>
