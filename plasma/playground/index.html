@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="/plasma/static/vendoring/css/github-markdown.css" rel="stylesheet">
+    <link href="/plasma/static/vendoring/prism-material-light.css" rel="stylesheet">
+    <link href="/plasma/static/css/app.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playground</title>
+</head>
+<body>
+
+<div class="contents">
+    <div class="header">
+        <a class="base-button header-button" href="/plasma/">Home</a>
+        <a class="base-button header-button" href="/plasma/playground">Playground</a>
+        <a class="base-button header-button" href="/plasma/articles">Documentation</a>
+    </div>
+    <div class="playground-buttons">
+    <button onclick="runCode()" class="green-button">Run</button>
+</div>
+<style type="text/css" media="screen">
+    #editor {
+        width: 100%;
+        height: 100%;
+    }
+</style>
+<div class="code-editor">
+    <div id="editor">def say_hi()
+    println("Hi")
+end
+
+say_hi()
+</div>
+    <p id="runtime-output" class="runtime-output"></p>
+</div>
+<script src="/plasma/static/vendoring/ace-builds/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/iplastic");
+    editor.session.setMode("ace/mode/ruby");
+    editor.setOption("showPrintMargin", false);
+</script>
+<script src="/plasma/static/vendoring/wasm_exec.js"></script>
+<script>
+    if (WebAssembly) {
+        // WebAssembly.instantiateStreaming is not currently available in Safari
+        if (WebAssembly && !WebAssembly.instantiateStreaming) { // polyfill
+            WebAssembly.instantiateStreaming = async (resp, importObject) => {
+                const source = await (await resp).arrayBuffer();
+                return await WebAssembly.instantiate(source, importObject);
+            };
+        }
+
+        const go = new Go();
+        WebAssembly.instantiateStreaming(fetch("/plasma/static/wasm/runtime.wasm"), go.importObject).then((result) => {
+            go.run(result.instance);
+        });
+    } else {
+        console.log("WebAssembly is not supported in your browser")
+    }
+</script>
+</div>
+<script src="/plasma/static/vendoring/prism/prism.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.4.0/showdown.min.js"></script>
+</body>
+</html>
