@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="/plasma/static/vendoring/css/github-markdown.css" rel="stylesheet">
+    <link href="/plasma/static/vendoring/css/prism-material-light.css" rel="stylesheet">
+    <link href="/plasma/static/css/app.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playground</title>
+</head>
+<body>
+
+<div class="contents">
+    <div class="header">
+        <a class="base-button purple-button" href="/plasma/">Home</a>
+        <a class="base-button purple-button" href="/plasma/playground">Playground</a>
+        <a class="base-button purple-button" href="/plasma/docs">Documentation</a>
+    </div>
+    <div class="documentation">
+    <div id="docs-buttons" style="width: 20%; margin-right: 5%;">
+        <button class="purple-button" style="width: 100%" id="hamburger-button" onclick="toggleMenu(this.id)">Open</button>
+        <div class="documentation-buttons">
+            <button class="unpressed-button"
+                    id="basics" onclick="openMdArticle(this.id)">Basics
+            </button>
+            <button class="unpressed-button"
+                    id="functions" onclick="openMdArticle(this.id)">Functions
+            </button>
+            <button class="unpressed-button"
+                    id="classes" onclick="openMdArticle(this.id)">Classes and interfaces
+            </button>
+            <button class="unpressed-button"
+                    id="loops" onclick="openMdArticle(this.id)">Loops
+            </button>
+            <button class="unpressed-button"
+                    id="control-flow" onclick="openMdArticle(this.id)">Control flow blocks
+            </button>
+            <button class="unpressed-button"
+                    id="built-in-symbols" onclick="openMdArticle(this.id)">Built-in symbols
+            </button>
+            <button class="unpressed-button"
+                    id="magic-methods" onclick="openMdArticle(this.id)">Magic methods
+            </button>
+        </div>
+    </div>
+    <div id="docs-article" class="doc-article">
+        <article class="markdown-body">
+            <div id="article-body">
+            </div>
+        </article>
+    </div>
+</div>
+
+<script src="/plasma/static/js/docs.js"></script>
+</div>
+<script src="/plasma/static/vendoring/prism/prism.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.4.0/showdown.min.js"></script>
+</body>
+</html>
